@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   background-color: var(--white);
   border-radius: 7px;
-  box-shadow: 17px -13px 15px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
 
   display: flex;
   justify-content: space-between;

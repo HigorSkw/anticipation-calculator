@@ -7,9 +7,9 @@ export const ResultDiv = () => {
 
   return (
     <ContainerPreview>
-      <h2>Você receberá</h2>
-      <p>Amanhã:</p>
+      <h2>Você receberá: </h2>
       <div className="preview-detail">
+        <p>Amanhã:</p>
         <span>
           R$
           {previewResult["1"] ? Number(previewResult["1"]).toFixed(2) : 0.0}

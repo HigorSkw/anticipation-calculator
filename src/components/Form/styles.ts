@@ -12,7 +12,7 @@ export const ContainerForm = styled.div`
   h1 {
     color: var(--color-gray);
     font-weight: 500;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   label {
