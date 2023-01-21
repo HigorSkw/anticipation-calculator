@@ -14,7 +14,7 @@ export const Form = () => {
 
   return (
     <ContainerForm>
-      <h1>Simule sua Anticipação</h1>
+      <h1>Simule sua Antecipação</h1>
 
       <label>
         Informe o valor da venda *
