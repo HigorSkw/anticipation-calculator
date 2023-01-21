@@ -28,7 +28,7 @@ export const Form = () => {
       </label>
 
       <label>
-        Em quantas parcelas
+        Em quantas parcelas *
         <input
           placeholder="Digite aqui"
           value={installments}
@@ -37,7 +37,7 @@ export const Form = () => {
       </label>
       <span>Máximo de 12 parcelas</span>
       <label>
-        Informe o percentual de MDR
+        Informe o percentual de MDR *
         <input
           placeholder="Digite aqui"
           value={percent}

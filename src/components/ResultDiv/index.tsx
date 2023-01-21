@@ -9,25 +9,33 @@ export const ResultDiv = () => {
     <ContainerPreview>
       <h2>Você receberá</h2>
       <p>Amanhã:</p>
-      <span>
-        R$
-        {previewResult["1"] ? previewResult["1"] : 0.0}
-      </span>
-      <p>Em 15 dias:</p>
-      <span>
-        R$
-        {previewResult["15"] ? previewResult["15"] : 0.0}
-      </span>
-      <p>Em 30 dias:</p>
-      <span>
-        R$
-        {previewResult["30"] ? previewResult["30"] : 0.0}
-      </span>
-      <p>Em 90 dias:</p>
-      <span>
-        R$
-        {previewResult["90"] ? previewResult["90"] : 0.0}
-      </span>
+      <div className="preview-detail">
+        <span>
+          R$
+          {previewResult["1"] ? Number(previewResult["1"]).toFixed(2) : 0.0}
+        </span>
+      </div>
+      <div className="preview-detail">
+        <p>Em 15 dias:</p>
+        <span>
+          R$
+          {previewResult["15"] ? Number(previewResult["15"]).toFixed(2) : 0.0}
+        </span>
+      </div>
+      <div className="preview-detail">
+        <p>Em 30 dias:</p>
+        <span>
+          R$
+          {previewResult["30"] ? Number(previewResult["30"]).toFixed(2) : 0.0}
+        </span>
+      </div>
+      <div className="preview-detail">
+        <p>Em 90 dias:</p>
+        <span>
+          R$
+          {previewResult["90"] ? Number(previewResult["90"]).toFixed(2) : 0.0}
+        </span>
+      </div>
     </ContainerPreview>
   );
 };
