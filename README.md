@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# Anticipation Calculator (calculadora de antecipação)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Olá, seja bem vindo ao read.me deste projeto!
 
-## Available Scripts
+## Case (História)
 
-In the project directory, you can run:
+Hoje nossos clientes precisam saber quanto custa antecipar uma transação, e para isso, precisamos desenvolver uma calculadora de antecipação para que os mesmos consigam saber quais valores receberão caso optem por antecipar o recebimento.
 
-### `yarn start`
+Você deverá desenvolver o teste seguindo os requisitos abaixo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Requisitos
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Use componentização.
+- Os períodos de recebimento devem ser configuráveis já que a API pode receber uma lista de periódos para realizar os cálculos.
 
-### `yarn test`
+## Front
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O layout proposto para essa calculadora pode ser visto no link abaixo.
 
-### `yarn build`
+[Link para o layout](https://www.figma.com/file/ipV80xJ29T7rdz0Aoo7xWv/Antecipation?node-id=0%3A1) - **Lembrando que a sua aplicação deve seguir o layout pixel by pixel**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Você consumirá uma API já existente no endereço abaixo. Em seguida há uma especificação simplificada dela.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`https://frontend-challenge-7bu3nxh76a-uc.a.run.app`
 
-### `yarn eject`
+### Post
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| Parâmetro      | Obrigatório? | Tipo            | Descrição                                                                              |
+| -------------- | ------------ | --------------- | -------------------------------------------------------------------------------------- |
+| `amount`       | Sim          | `number`        | Valor total da transação em centavos                                                   |
+| `installments` | Sim          | `number`        | Número de parcelas                                                                     |
+| `mdr`          | Sim          | `number`        | É a taxa cobrada pelas adquirentes sobre cada transação de cartão de crédito ou débito |
+| `days`         | Não          | `Array<number>` | Uma lista com os dias a serem calculadas as antecipações                               |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Exemplo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+$ curl --request POST \
+  --url https://frontend-challenge-7bu3nxh76a-uc.a.run.app \
+  --header 'content-type: application/json' \
+  --data '{
+	"amount": 15000,
+	"installments": 3,
+	"mdr": 4
+}'
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+{"1":13267,"15":13536,"30":13824,"90":14400}
+```
 
-## Learn More
+### Exemplo informando períodos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+$ curl --request POST \
+  --url https://frontend-challenge-7bu3nxh76a-uc.a.run.app \
+  --header 'content-type: application/json' \
+  --data '{
+	"amount": 15000,
+	"installments": 3,
+	"mdr": 4,
+	"days": [30, 60, 90]
+}'
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+{"30":13824,"60":14208,"90":14400}
+```
+
+### Colocando em execução
+
+1° - Faça o clone deste repositório.
+
+2° - Ao iniciar o no seu Vscode (ou outro que tenha familiaridade), execute o comando - "yarn" para fazer o download de todas as dependências.
+
+3° - Execute o comando yarn start para inicializar o projeto!
+
+;)
